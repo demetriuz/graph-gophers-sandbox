@@ -4,9 +4,9 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-
 	graphql "github.com/graph-gophers/graphql-go"
 	"github.com/graph-gophers/graphql-go/relay"
+	queryResolvers "github.com/demetriuz/graph-gophers-sandbox/query_resolvers"
 )
 
 
@@ -16,7 +16,7 @@ func main() {
 		panic(err)
 	}
 
-	schema := graphql.MustParseSchema(s, &query{})
+	schema := graphql.MustParseSchema(s, &queryResolvers.Query{})
 	http.Handle("/query", &relay.Handler{Schema: schema})
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }

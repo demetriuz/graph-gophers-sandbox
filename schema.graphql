@@ -1,16 +1,35 @@
 schema {
     query: Query
 }
+
+
+type PageInfo {
+    startCursor: String
+    endCursor: String
+    hasNextPage: Boolean!
+    hasPreviousPage: Boolean!
+}
+
+
+# ------------------------------------------
+
+type Hello {
+    text: String
+}
+
+type HelloEdge {
+    cursor: String
+    node: Hello
+}
+
+type HelloConnection {
+    totalCount: Int!
+    edges: [HelloEdge]
+    pageInfo: PageInfo!
+}
+
+# ------------------------------------------
+
 type Query {
-    hello: String!
-    bye(name: String!): Resp
-}
-
-type Subresp {
-    name: String
-}
-
-type Resp {
-    name: String
-    subresp: Subresp
+    hello_collection: HelloConnection
 }

@@ -1,7 +1,9 @@
 # graph-gophers-sandbox
 
 # TODO:
-- [ ] paginated collection
+- [x] paginated collection
+- [ ] optional resolve results
 - [ ] mutation with args
 - [ ] mutation with type
 - [ ] deep nested query benchmark
+- [ ] dataloader
