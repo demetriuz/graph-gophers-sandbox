@@ -1,0 +1,16 @@
+schema {
+    query: Query
+}
+type Query {
+    hello: String!
+    bye(name: String!): Resp
+}
+
+type Subresp {
+    name: String
+}
+
+type Resp {
+    name: String
+    subresp: Subresp
+}
